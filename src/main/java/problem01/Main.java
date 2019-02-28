@@ -19,15 +19,22 @@ public class Main {
 		
 		// 게임 시작
 		while( true ) {
-	
+			count++;
+			
 			System.out.print( "[" + min + "-" + max + "] 사이의 값 입력:" );
 			int answer = scanner.nextInt();
-			
+			System.out.println(answer);
 			boolean result = checkAnswer( answer );
+			
 			if ( result ) {
 				break;
 			}
-		
+			
+			if(answer>=randomNumber)
+				max = answer;
+			else
+				min = answer;
+			
 			System.out.println("");
 		}
 		
@@ -39,6 +46,6 @@ public class Main {
 	}
 	
 	public static boolean checkAnswer(int answer) {
-		return true;
+		return randomNumber == answer ? true : false;
 	}
 }
